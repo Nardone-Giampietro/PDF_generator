@@ -3,3 +3,4 @@ sys
 unittest
 scipy
 numpy
+furo
