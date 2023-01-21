@@ -3,4 +3,4 @@
     <img src='https://readthedocs.org/projects/pdf-generator/badge/?version=latest' alt='Documentation Status' />
 </a>
 
-The ProbabilityDensityFunction creates instances that generate pseudo-random numbers with an arbitrary 1D distribution sampled by an array of values.
+The ProbabilityDensityFunction class creates instances that generate pseudo-random numbers with an arbitrary 1D distribution sampled by an array of values.
