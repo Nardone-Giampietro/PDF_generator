@@ -1,5 +1,5 @@
 """
-Created by Nardone Giampietro
+Created by Nardone Giampietro with GPL-3.0 license
 """
 import logging
 import sys
