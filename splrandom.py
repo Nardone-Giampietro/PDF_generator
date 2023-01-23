@@ -11,7 +11,20 @@ import numpy as np
 
 class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
     """
-    This class creates an istance that inherit from the scipy class InterpolatedUnivariateSpline.
+    This class creates an istance that inherit from the scipy_ class InterpolatedUnivariateSpline_\
+    The instance accept two arrays sampling the PDF on a grid of values.
+
+    .. _scipy: https://docs.scipy.org/doc/scipy/
+    .. _InterpolatedUnivariateSpline: \
+        https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html
+
+    :param x_array: 1-D array of values where the PDF has been sampled over. Must be increasing
+    :type x_array: array[float]
+    :param y_array: 1-D array of the normalized occurrences for each sampled value.
+    :type y_array: array[float]
+    :param k: Degree of the smoothing spline used to interpolate the input data.\
+        Must be 1 <= k <= 5. k = 3 is a cubic spline. Default is 3.
+    :type k: integer or None
 
     """
 
@@ -30,11 +43,9 @@ class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
 
     def int_rand(self, inter):
         """
-        Return the probability for the random variable to be included in a generic interval.
-
-        :param inter: Interval of interest
+        :param inter: Interval of interest.
         :type inter: list[float, float]
-        :return: The probability of finding a random generated value inside the interval
+        :return: The probability of finding a random generated value inside the interval.
         :rtype: float
         """
         if len(inter) != 2:
@@ -51,12 +62,11 @@ class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
 
     def rand(self, size=1):
         """
-        Generates pseudo-random numbers according to the spline generated PDF.
-
-        :param size: Optional number of pseudo-random values to be generated. Default is 1.
+        :param size: Number of pseudo-random values to be generated\
+            with the sampled PDF. Default is 1.
         :type size: int
-        :return : List of pseudo-random numbers.
-        :rtype : list[float]
+        :return: List of pseudo-random numbers.
+        :rtype: list[float]
         """
         return self.idf(np.random.uniform(size=size))
 
